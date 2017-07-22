@@ -1,6 +1,6 @@
 .search {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .row {
@@ -15,9 +15,14 @@
     flex-direction: column;
 }
 
+.subpane {
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 450px;
+}
+
 label,
 input {
-    /* margin-left: 20px; */
     margin-right: 20px;
 }
 
@@ -32,12 +37,31 @@ input {
     height: 25px;
 }
 
-ul {
-    list-style: none;
+h4 {
+    text-decoration: underline;
 }
 
-.mat-input-element,
-.mat-select {
-    margin-right: 40px;
-    width: 300px;
+.short {
+    width: 80px;
+}
+
+button {
+    margin: 10px;
+    border-radius: 10px;
+    font-size: large;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.k-primary {
+    background-color: green;
+    border: none;
+}
+
+.k-primary:hover {
+    background-color: lightgreen;
 }

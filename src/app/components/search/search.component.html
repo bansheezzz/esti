@@ -1,69 +1,98 @@
 <div class="search">
-    <ul>
-        <li>
-            <div class="row">
-                <div class="col">
-                    <label>LAST NAME</label>
-                    <input type="text" placeholder="Last Name" />
-                </div>
-                <div class="col">
-                    <label>FIRST NAME</label>
-                    <input type="text" placeholder="First Name" />
-                </div>
-                <div class="col">
-                    <label>Date of Birth</label>
-                    <input type="text" placeholder="Date of Birth" />
-                </div>
+    <div class="subpane">
+        <h4>PATIENT INFORMATION</h4>
+        <div class="row">
+            <div class="col">
+                <label>LAST NAME</label>
+                <input type="text" placeholder="Last Name" />
             </div>
-        </li>
-        <li>
-            <div class="row">
-                <div class="col">
-                    <label>BC HEALTH CARD NUMBER</label>
-                    <input type="text" placeholder="BC Health Card Number" />
-                </div>
-                <div class="col">
-                    <label>Health Region (Branch)</label>
-                    <input type="text" placeholder="Health Region (Branch)" />
-                </div>
-                <div class="col">
-                    <label>Gender</label>
-                    <input type="text" placeholder="Gender" />
-                </div>
+            <div class="col">
+                <label>FIRST NAME</label>
+                <input type="text" placeholder="First Name" />
             </div>
-        </li>
-    </ul>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>DATE OF BIRTH</label>
+                <input type="text" placeholder="Date of Birth" />
+            </div>
+            <div class="col">
+                <label>GENDER</label>
+                <input type="text" placeholder="Gender" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>ALTERNATE LAST</label>
+                <input type="text" placeholder="Last Name" />
+            </div>
+            <div class="col">
+                <label>ALTERNATE FIRST</label>
+                <input type="text" placeholder="First Name" />
+            </div>
+        </div>
+    </div>
+
+    <div class="subpane">
+        <h4>HEALTH RECORD</h4>
+        <div class="row">
+            <div class="col">
+                <label>BC HEALTH CARD NUMBER</label>
+                <input type="text" placeholder="BC Health Card Number" />
+            </div>
+            <div class="col">
+                <label>HEALTH REGION (BRANCH)</label>
+                <input type="text" placeholder="Health Region (Branch)" />
+            </div>
+        </div>
+        <h4>CONTACT</h4>
+        <div class="row">
+            <div class="col">
+                <label>PHONE NUMBER</label>
+                <input type="text" placeholder="Phone Number" />
+            </div>
+            <div class="col">
+                <label>EMAIL</label>
+                <input type="text" placeholder="Email" />
+            </div>
+        </div>
+    </div>
+
+    <div class="subpane">
+        <h4>ADDRESS</h4>
+        <div class="row">
+            <div class="col">
+                <label>UNIT</label>
+                <input class="short" type="text" placeholder="Unit" />
+            </div>
+            <div class="col">
+                <label>STREET NO</label>
+                <input class="short" type="text" placeholder="Street No" />
+            </div>
+            <div class="col">
+                <label>STREET NAME</label>
+                <input type="text" placeholder="Street Name" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>CITY</label>
+                <input type="text" placeholder="City" />
+            </div>
+            <div class="col">
+                <label>COUNTRY</label>
+                <input type="text" placeholder="Country" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>POSTAL CODE</label>
+                <input class="short" type="text" placeholder="Postal Code" />
+            </div>
+        </div>
+    </div>
 </div>
-
-
-
-<!-- <div class="search">
-    <ul>
-        <li>
-            <div class="row">
-                <md-input-container>
-                    <input mdInput placeholder="Last Name" />
-                </md-input-container>
-                <md-input-container>
-                    <input mdInput placeholder="First Name" />
-                </md-input-container>
-                <md-input-container>
-                    <input mdInput [mdDatepicker]="myDatepicker" placeholder="Birth Date">
-                    <button mdSuffix [mdDatepickerToggle]="myDatepicker"></button>
-                </md-input-container>
-            </div>
-            <div class="row">
-                <md-datepicker #myDatepicker></md-datepicker>
-                <md-input-container>
-                    <input type="number" mdInput placeholder="BC Health Card Number" />
-                </md-input-container>
-                <md-select placeholder="Health Region (Branch)">
-                    <md-option *ngFor="let state of states" [value]="state.code">{{ state.name }}</md-option>
-                </md-select>
-                <md-select placeholder="Gender">
-                    <md-option *ngFor="let state of states" [value]="state.code">{{ state.name }}</md-option>
-                </md-select>
-            </div>
-        </li>
-    </ul>
-</div> -->
+<div class="row buttons">
+    <button kendoButton [primary]="true">Search</button>
+    <button kendoButton>Clear</button>
+</div>

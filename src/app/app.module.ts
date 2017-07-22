@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ButtonsModule } from '@progress/kendo-angular-buttons';
 
 // import { MdMenuModule, MdButtonModule, MdInputModule,
 //          MdDatepickerModule, MdNativeDateModule, MdSelectModule
@@ -33,12 +34,7 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserModule,
     BrowserAnimationsModule,
     RouterModule,
-    // MdMenuModule,
-    // MdInputModule,
-    // MdButtonModule,
-    // MdSelectModule,
-    // MdDatepickerModule,
-    // MdNativeDateModule,
+    ButtonsModule,
     routes
   ],
   providers: [
