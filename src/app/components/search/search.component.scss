@@ -1,0 +1,43 @@
+.search {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+label,
+input {
+    /* margin-left: 20px; */
+    margin-right: 20px;
+}
+
+label {
+    margin-top: 10px;
+    font-size: x-small;
+    font-weight: bold;
+}
+
+input {
+    width: 200px;
+    height: 25px;
+}
+
+ul {
+    list-style: none;
+}
+
+.mat-input-element,
+.mat-select {
+    margin-right: 40px;
+    width: 300px;
+}

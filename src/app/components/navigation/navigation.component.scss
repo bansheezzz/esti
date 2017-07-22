@@ -1,0 +1,37 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    background-color: green;
+}
+
+.row {
+    background-color: green;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-flex;
+    align-items: center;
+    height: 40px;
+}
+
+a,
+div {
+    background-color: green;
+    color: white;
+    font-size: large;
+    text-decoration: none;
+}
+
+span:hover {
+    background-color: lightgray;
+    color: black;
+}
+
+a.active {
+    color: black;
+}
+
+a.active>span {
+    background-color: white;
+    border-top: 1px dotted green;
+    border-radius: 5px 5px 0px 0px;
+}

@@ -1,0 +1,69 @@
+<div class="search">
+    <ul>
+        <li>
+            <div class="row">
+                <div class="col">
+                    <label>LAST NAME</label>
+                    <input type="text" placeholder="Last Name" />
+                </div>
+                <div class="col">
+                    <label>FIRST NAME</label>
+                    <input type="text" placeholder="First Name" />
+                </div>
+                <div class="col">
+                    <label>Date of Birth</label>
+                    <input type="text" placeholder="Date of Birth" />
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="row">
+                <div class="col">
+                    <label>BC HEALTH CARD NUMBER</label>
+                    <input type="text" placeholder="BC Health Card Number" />
+                </div>
+                <div class="col">
+                    <label>Health Region (Branch)</label>
+                    <input type="text" placeholder="Health Region (Branch)" />
+                </div>
+                <div class="col">
+                    <label>Gender</label>
+                    <input type="text" placeholder="Gender" />
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+<!-- <div class="search">
+    <ul>
+        <li>
+            <div class="row">
+                <md-input-container>
+                    <input mdInput placeholder="Last Name" />
+                </md-input-container>
+                <md-input-container>
+                    <input mdInput placeholder="First Name" />
+                </md-input-container>
+                <md-input-container>
+                    <input mdInput [mdDatepicker]="myDatepicker" placeholder="Birth Date">
+                    <button mdSuffix [mdDatepickerToggle]="myDatepicker"></button>
+                </md-input-container>
+            </div>
+            <div class="row">
+                <md-datepicker #myDatepicker></md-datepicker>
+                <md-input-container>
+                    <input type="number" mdInput placeholder="BC Health Card Number" />
+                </md-input-container>
+                <md-select placeholder="Health Region (Branch)">
+                    <md-option *ngFor="let state of states" [value]="state.code">{{ state.name }}</md-option>
+                </md-select>
+                <md-select placeholder="Gender">
+                    <md-option *ngFor="let state of states" [value]="state.code">{{ state.name }}</md-option>
+                </md-select>
+            </div>
+        </li>
+    </ul>
+</div> -->
