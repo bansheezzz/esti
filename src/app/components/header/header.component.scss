@@ -5,6 +5,7 @@ img {
 .mainheader {
     display: flex;
     flex-direction: row;
+    width: 1024px;
     height: 75px;
 }
 
@@ -14,12 +15,12 @@ img {
 
 .left {
     align-self: flex-end;
-    flex: 1 85%;
+    width: 750px;
     justify-content: flex-start;
 }
 
 .right {
-    /* width: 14%; */
+    width: 100px;
     justify-content: flex-end;
     /* float: right; */
 }

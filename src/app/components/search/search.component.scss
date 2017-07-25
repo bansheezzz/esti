@@ -16,9 +16,11 @@
 }
 
 .subpane {
-    padding-left: 25px;
-    padding-right: 25px;
-    width: 450px;
+    background-color: #EEEEEE;
+    margin: 10px 10px 10px 0px;
+    padding: 0px 10px 10px 10px;
+    width: 350px;
+    border-radius: 10px;
 }
 
 label,
@@ -33,16 +35,18 @@ label {
 }
 
 input {
-    width: 200px;
+    width: 120px;
     height: 25px;
 }
 
 h4 {
     text-decoration: underline;
+    margin-bottom: 5px;
+    margin-top: 20px;
 }
 
 .short {
-    width: 80px;
+    width: 70px;
 }
 
 button {
@@ -62,7 +66,8 @@ button {
     flex-direction: row;
     align-items: center;
     font-size: small;
-    margin-right: 30px;
+    margin-right: 20px;
+    font-weight: bold;
 }
 
 input[type=checkbox] {
@@ -83,4 +88,9 @@ input[type=checkbox] {
 
 .k-primary:hover {
     background-color: lightgreen;
+}
+
+.searchresults {
+    height: 350px;
+    background-color: lightgray;
 }

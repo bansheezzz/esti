@@ -37,12 +37,12 @@
         <h4>HEALTH RECORD</h4>
         <div class="row">
             <div class="col">
-                <label>BC HEALTH CARD NUMBER</label>
-                <input type="text" placeholder="BC Health Card Number" />
+                <label>BC HEALTH CARD NO</label>
+                <input type="text" placeholder="BC Health Card No" />
             </div>
             <div class="col">
-                <label>HEALTH REGION (BRANCH)</label>
-                <input type="text" placeholder="Health Region (Branch)" />
+                <label>HEALTH REGION</label>
+                <input type="text" placeholder="Health Region" />
             </div>
         </div>
         <h4>CONTACT</h4>
@@ -100,19 +100,28 @@
     <div class="col">
         <span class="checkboxlabel">
             <input type="checkbox" />
-            Closed investigations
+            CLOSED INVESTIGATIONS
         </span>
     </div>
     <div class="col">
         <span class="checkboxlabel">
             <input type="checkbox" />
-            Inactive clients
+            INACTIVE CLIENTS
         </span>
     </div>
     <div class="col">
         <span class="checkboxlabel">
             <input type="checkbox" />
-            Indeterminate clients
+            INDETERMINATE CLIENTS
         </span>
     </div>
+</div>
+<div class="row searchresults">
+
+</div>
+<div class="row buttons">
+    <button kendoButton [primary]="true">View</button>
+    <button kendoButton>Create New Client</button>
+    <button kendoButton>Create New Investigation</button>
+    <button kendoButton>Update Investigation</button>
 </div>
