@@ -146,7 +146,9 @@
 
 <kendo-grid [data]="patients" 
             [height]="350" 
-            [selectable]="true">
+            [selectable]="true"
+            #patientGrid
+            (selectionChange)="selectPatientRow($event)">
     <kendo-grid-column field="clientID" width="80" title="CLIENT ID"></kendo-grid-column>
     <kendo-grid-column field="phn" width="110" title="PHN"></kendo-grid-column>
     <kendo-grid-column field="lastName" width="100" title="LAST NAME"></kendo-grid-column>
@@ -159,7 +161,9 @@
     <div *kendoGridDetailTemplate="let patient">
         <h3>STI Investigation for Client ({{patient.investigations.length}})</h3>
         <kendo-grid [data]="patient.investigations" 
-                    [selectable]="true">
+                [selectable]="true"
+                #investigationGrid
+                (selectionChange)="selectInvestigationRow($event)">
             <kendo-grid-column field="id" width="40" title="ID"></kendo-grid-column>
             <kendo-grid-column field="disease.name" width="60" title="DISEASE"></kendo-grid-column>
             <kendo-grid-column field="classification" width="70" title="CLASSIFICATION"></kendo-grid-column>
@@ -170,7 +174,9 @@
 </kendo-grid>
 
 <div class="row buttons">
-    <button kendoButton [primary]="true">View</button>
+    <button kendoButton [primary]="true"
+        [disabled]="currentID ? false : true"
+        (click)="viewRecord()">View</button>
     <button kendoButton>Create New Client</button>
     <button kendoButton>Create New Investigation</button>
     <button kendoButton>Update Investigation</button>

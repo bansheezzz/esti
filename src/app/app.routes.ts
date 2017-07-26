@@ -12,7 +12,11 @@ export const router: Routes = [
     { path: 'personalinfo', component: PersonalInformationComponent },
     { path: 'diseasetreatment', component: DiseaseInformationTreatmentComponent },
     { path: 'stiinfo', component: StiInformationComponent },
-    { path: 'contact', component: ContactsComponent }
+    { path: 'contact', component: ContactsComponent },
+    { path: 'personalinfo/:id', component: PersonalInformationComponent },
+    { path: 'diseasetreatment/:id', component: DiseaseInformationTreatmentComponent },
+    { path: 'stiinfo/:id', component: StiInformationComponent },
+    { path: 'contact/:id', component: ContactsComponent }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);
