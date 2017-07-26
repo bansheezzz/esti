@@ -1,93 +1,120 @@
 <div class="search">
     <div class="subpane">
-        <h4>PATIENT INFORMATION</h4>
+        <h5>PATIENT INFORMATION</h5>
         <div class="row">
             <div class="col">
                 <label>LAST NAME</label>
-                <input type="text" placeholder="Last Name" />
+                <input type="text" 
+                    class="k-widget k-textbox k-input" 
+                    placeholder="Last Name" />
             </div>
             <div class="col">
                 <label>FIRST NAME</label>
-                <input type="text" placeholder="First Name" />
+                <input type="text"
+                    class="k-widget k-textbox k-input" 
+                    placeholder="First Name" />
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label>DATE OF BIRTH</label>
-                <input type="text" placeholder="Date of Birth" />
+                <kendo-dateinput></kendo-dateinput>
             </div>
             <div class="col">
                 <label>GENDER</label>
-                <input type="text" placeholder="Gender" />
+                <kendo-dropdownlist [data]="genders" 
+                    [textField]="'description'" 
+                    [valueField]="'code'">
+                </kendo-dropdownlist>
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label>ALTERNATE LAST</label>
-                <input type="text" placeholder="Last Name" />
+                <input type="text" 
+                    class="k-widget k-textbox k-input" 
+                    placeholder="Last Name" />
             </div>
             <div class="col">
                 <label>ALTERNATE FIRST</label>
-                <input type="text" placeholder="First Name" />
+                <input type="text" 
+                    class="k-widget k-textbox k-input" 
+                    placeholder="First Name" />
             </div>
         </div>
     </div>
 
     <div class="subpane">
-        <h4>HEALTH RECORD</h4>
+        <h5>HEALTH RECORD</h5>
         <div class="row">
             <div class="col">
-                <label>BC HEALTH CARD NO</label>
-                <input type="text" placeholder="BC Health Card No" />
+                <label>BC HEALTH CARD #</label>
+                <kendo-maskedtextbox [mask]="'999 000 0000'"></kendo-maskedtextbox>
             </div>
             <div class="col">
                 <label>HEALTH REGION</label>
-                <input type="text" placeholder="Health Region" />
+                <input type="text" 
+                    class="k-widget k-textbox k-input" 
+                    placeholder="Health Region" />
             </div>
         </div>
-        <h4>CONTACT</h4>
+        <h5>CONTACT</h5>
         <div class="row">
             <div class="col">
                 <label>PHONE NUMBER</label>
-                <input type="text" placeholder="Phone Number" />
+                <kendo-maskedtextbox [mask]="'(999) 000-0000'"></kendo-maskedtextbox>
             </div>
             <div class="col">
                 <label>EMAIL</label>
-                <input type="text" placeholder="Email" />
+                <input type="text" 
+                    class="k-widget k-textbox k-input" 
+                    placeholder="Email" />
             </div>
         </div>
     </div>
 
     <div class="subpane">
-        <h4>ADDRESS</h4>
+        <h5>ADDRESS</h5>
         <div class="row">
             <div class="col">
                 <label>UNIT</label>
-                <input class="short" type="text" placeholder="Unit" />
+                <input class="short k-widget k-textbox k-input" 
+                    type="text" 
+                    placeholder="Unit" />
             </div>
             <div class="col">
-                <label>STREET NO</label>
-                <input class="short" type="text" placeholder="Street No" />
+                <label>STREET #</label>
+                <kendo-numerictextbox class="short" 
+                    [spinners]="false" 
+                    placeholder="Street No"></kendo-numerictextbox>
             </div>
             <div class="col">
                 <label>STREET NAME</label>
-                <input type="text" placeholder="Street Name" />
+                <input type="text" 
+                    class="k-widget k-textbox k-input" 
+                    placeholder="Street Name" />
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label>CITY</label>
-                <input type="text" placeholder="City" />
+                <input type="text" 
+                    class="k-widget k-textbox k-input" 
+                    placeholder="City" />
             </div>
             <div class="col">
                 <label>COUNTRY</label>
-                <input type="text" placeholder="Country" />
+                <input type="text" 
+                    class="k-widget k-textbox k-input" 
+                    placeholder="Country" />
             </div>
         </div>
         <div class="row">
             <div class="col">
                 <label>POSTAL CODE</label>
-                <input class="short" type="text" placeholder="Postal Code" />
+                <input class="k-widget k-textbox k-input" 
+                    type="text" 
+                    placeholder="Postal Code" />
             </div>
         </div>
     </div>
@@ -116,9 +143,32 @@
         </span>
     </div>
 </div>
-<div class="row searchresults">
 
-</div>
+<kendo-grid [data]="patients" 
+            [height]="350" 
+            [selectable]="true">
+    <kendo-grid-column field="clientID" width="80" title="CLIENT ID"></kendo-grid-column>
+    <kendo-grid-column field="phn" width="110" title="PHN"></kendo-grid-column>
+    <kendo-grid-column field="lastName" width="100" title="LAST NAME"></kendo-grid-column>
+    <kendo-grid-column field="firstName" width="100" title="FIRST NAME"></kendo-grid-column>
+    <kendo-grid-column field="gender" width="70" title="GENDER"></kendo-grid-column>
+    <kendo-grid-column field="dob" width="100" title="DOB" format="{0:yyyy-MMM-dd}"></kendo-grid-column>
+    <kendo-grid-column field="phone" width="90" title="PHONE"></kendo-grid-column>
+    <kendo-grid-column field="email" width="150" title="EMAIL"></kendo-grid-column>
+    <kendo-grid-column field="address" width="150" title="ADDRESS"></kendo-grid-column>
+    <div *kendoGridDetailTemplate="let patient">
+        <h3>STI Investigation for Client ({{patient.investigations.length}})</h3>
+        <kendo-grid [data]="patient.investigations" 
+                    [selectable]="true">
+            <kendo-grid-column field="id" width="40" title="ID"></kendo-grid-column>
+            <kendo-grid-column field="disease.name" width="60" title="DISEASE"></kendo-grid-column>
+            <kendo-grid-column field="classification" width="70" title="CLASSIFICATION"></kendo-grid-column>
+            <kendo-grid-column field="collectionDate" width="40" title="COLLECTION DATE" format="{0:yyyy-MMM-dd}"></kendo-grid-column>
+            <kendo-grid-column field="status" width="40" title="STATUS"></kendo-grid-column>
+        </kendo-grid>
+    </div>
+</kendo-grid>
+
 <div class="row buttons">
     <button kendoButton [primary]="true">View</button>
     <button kendoButton>Create New Client</button>

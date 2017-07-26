@@ -1,13 +1,14 @@
+import { PatientService } from './services/patient.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
-
-// import { MdMenuModule, MdButtonModule, MdInputModule,
-//          MdDatepickerModule, MdNativeDateModule, MdSelectModule
-// } from '@angular/material';
-
+import { GridModule } from '@progress/kendo-angular-grid';
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { InputsModule } from '@progress/kendo-angular-inputs'
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
@@ -35,9 +36,14 @@ import { HeaderComponent } from './components/header/header.component';
     BrowserAnimationsModule,
     RouterModule,
     ButtonsModule,
+    GridModule,
+    DropDownsModule,
+    InputsModule,
+    DateInputsModule,
     routes
   ],
   providers: [
+    PatientService
   ],
   bootstrap: [AppComponent]
 })

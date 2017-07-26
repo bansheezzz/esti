@@ -6,13 +6,15 @@
 .row {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: left;
     justify-content: space-between;
 }
 
 .col {
     display: flex;
+    width: 100%;
     flex-direction: column;
+    align-items: left;
 }
 
 .subpane {
@@ -34,12 +36,13 @@ label {
     font-weight: bold;
 }
 
-input {
+input,
+.k-input {
     width: 120px;
     height: 25px;
 }
 
-h4 {
+h5 {
     text-decoration: underline;
     margin-bottom: 5px;
     margin-top: 20px;
@@ -52,7 +55,7 @@ h4 {
 button {
     margin: 10px;
     border-radius: 10px;
-    font-size: large;
+    font-size: medium;
 }
 
 .checkboxgroup {
@@ -65,7 +68,7 @@ button {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: small;
+    font-size: x-small;
     margin-right: 20px;
     font-weight: bold;
 }
@@ -86,11 +89,11 @@ input[type=checkbox] {
     border: none;
 }
 
-.k-primary:hover {
+.k-button:hover {
     background-color: lightgreen;
 }
 
-.searchresults {
-    height: 350px;
-    background-color: lightgray;
+.k-widget,
+.k-datepicker {
+    font-size: x-small;
 }
