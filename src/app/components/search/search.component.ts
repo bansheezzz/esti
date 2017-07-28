@@ -1,9 +1,9 @@
 import { Router } from '@angular/router';
-import { Investigation } from './../../types/investigation';
+import { Investigation } from 'app/types/investigation';
 import { element } from 'protractor';
-import { Gender } from './../../types/gender';
-import { PatientService } from './../../services/patient.service';
-import { Patient } from './../../types/patient';
+import { Gender } from 'app/types/gender';
+import { PatientService } from 'app/services/patient.service';
+import { Patient } from 'app/types/patient';
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { SelectionEvent, GridComponent } from '@progress/kendo-angular-grid';
 
@@ -18,14 +18,17 @@ export class SearchComponent implements OnInit {
 
   private patients: Patient[];
   private genders: Gender[];
-  private currentID: number;
   private currentRouteTarget: string;
+  private isViewable = false;
 
   constructor(private patientService: PatientService, private router: Router) { }
 
   ngOnInit() {
-    this.patients = this.patientService.getPatients();
-    this.genders = this.patientService.getGenders();
+    this.patientService.getPatients()
+      .subscribe((patients) => this.patients = patients);
+
+    this.patientService.getGenders()
+      .subscribe((genders) => this.genders = genders);
   }
 
   selectPatientRow(event: SelectionEvent) {
@@ -33,11 +36,14 @@ export class SearchComponent implements OnInit {
       if (this.investigationGrid) {
         this.clearSelection(this.investigationGrid);
       }
-      this.currentID = this.patientGrid.data[event.index].clientID;
+      this.patientService.setCurrentPatient(
+        this.patientGrid.data[event.index]
+      );
       this.currentRouteTarget = 'personalinfo';
+      this.isViewable = true;
       return;
     }
-    this.currentID = null;
+    this.isViewable = false;
   }
 
   selectInvestigationRow(event: SelectionEvent) {
@@ -45,15 +51,16 @@ export class SearchComponent implements OnInit {
       if (this.patientGrid) {
         this.clearSelection(this.patientGrid);
       }
-      this.currentID = this.investigationGrid.data[event.index].id;
+
       this.currentRouteTarget = 'diseasetreatment';
+      this.isViewable = true;
       return;
     }
-    this.currentID = null;
+    this.isViewable = false;
   }
 
   viewRecord() {
-    this.router.navigate([ this.currentRouteTarget, this.currentID ])
+    this.router.navigate([ this.currentRouteTarget ])
   }
 
   private clearSelection(grid: GridComponent) {

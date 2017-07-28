@@ -13,10 +13,10 @@ export const router: Routes = [
     { path: 'diseasetreatment', component: DiseaseInformationTreatmentComponent },
     { path: 'stiinfo', component: StiInformationComponent },
     { path: 'contact', component: ContactsComponent },
-    { path: 'personalinfo/:id', component: PersonalInformationComponent },
-    { path: 'diseasetreatment/:id', component: DiseaseInformationTreatmentComponent },
-    { path: 'stiinfo/:id', component: StiInformationComponent },
-    { path: 'contact/:id', component: ContactsComponent }
+    // { path: 'personalinfo/:id', component: PersonalInformationComponent },
+    // { path: 'diseasetreatment/:id', component: DiseaseInformationTreatmentComponent },
+    // { path: 'stiinfo/:id', component: StiInformationComponent },
+    // { path: 'contact/:id', component: ContactsComponent }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

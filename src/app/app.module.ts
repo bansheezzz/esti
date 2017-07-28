@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { PatientService } from './services/patient.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,6 +34,7 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     RouterModule,
     ButtonsModule,

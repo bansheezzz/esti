@@ -175,7 +175,7 @@
 
 <div class="row buttons">
     <button kendoButton [primary]="true"
-        [disabled]="currentID ? false : true"
+        [disabled]="!isViewable"
         (click)="viewRecord()">View</button>
     <button kendoButton>Create New Client</button>
     <button kendoButton>Create New Investigation</button>
