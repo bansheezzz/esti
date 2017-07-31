@@ -1,0 +1,150 @@
+<div class="physician">
+  <h5>PHYSICIAN / AGENCY</h5>
+  <table>
+    <tr>
+      <td class="label">
+        <label>
+          <input type="radio" 
+            name="orgtype" 
+            value="physician" 
+            checked 
+            (click)="orgSelect($event.currentTarget.value)"/>
+            PHYSICIAN SEARCH:
+        </label>
+      </td>
+      <td>
+        <input class="k-widget k-textbox k-input x-wide" 
+          type="text" 
+          placeholder="Physician" />
+      </td>
+    </tr>
+    <tr>
+      <td class="label">
+        <label>
+          <input type="radio" 
+            name="orgtype" 
+            value="agency" 
+            (click)="orgSelect($event.currentTarget.value)"/>
+            AGENCY SEARCH:
+        </label>
+      </td>
+      <td>
+        <input class="k-widget k-textbox k-input x-wide" 
+          type="text" 
+          placeholder="Agency" />
+      </td>
+    </tr>
+    <tr>
+      <td class="label">
+        <label>
+          <input type="radio" 
+            name="orgtype" 
+            value="other" 
+            (click)="orgSelect($event.currentTarget.value)"/>
+            OTHER:
+        </label>
+      </td>
+    </tr>
+    <tr *ngIf="isOtherPhysician">
+      <td></td>
+      <td>
+         <div class="other">
+          <div class="row">
+            <div class="col sublabel">
+              PHYSICIAN LAST NAME:
+              <input class="k-widget k-textbox k-input medium" 
+                type="text" 
+                placeholder="Physician Last Name" />
+            </div>
+            <div class="col sublabel">
+              PHYSICIAN FIRST NAME:
+              <input class="k-widget k-textbox k-input medium" 
+                type="text" 
+                placeholder="Physician First Name" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col sublabel">
+              AGENCY:
+              <input class="k-widget k-textbox k-input x-wide" 
+                type="text" 
+                placeholder="Agency Name" />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col sublabel">
+            PHONE #:
+            <input class="k-widget k-textbox k-input x-small" 
+              type="text" 
+              placeholder="Agency Name" />
+          </div>
+          <div class="col sublabel">
+            UNIT #:
+            <input class="k-widget k-textbox k-input xx-small" 
+              type="text" 
+              placeholder="Agency Name" />
+          </div>
+          <div class="col sublabel">
+            STREET #:
+            <input class="k-widget k-textbox k-input xx-small" 
+              type="text" 
+              placeholder="Agency Name" />
+          </div>
+          <div class="col sublabel">
+            DIR:
+            <input class="k-widget k-textbox k-input xx-small" 
+              type="text" 
+              placeholder="Agency Name" />
+          </div>
+          <div class="col sublabel">
+            STREET NAME:
+            <input class="k-widget k-textbox k-input medium" 
+              type="text" 
+              placeholder="Agency Name" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col sublabel">
+              CITY:
+              <input class="k-widget k-textbox k-input small" 
+                type="text" 
+                placeholder="Agency Name" />
+          </div>
+          <div class="col sublabel">
+              COUNTRY:
+              <input class="k-widget k-textbox k-input small" 
+                type="text" 
+                placeholder="Agency Name" />
+          </div>        
+          <div class="col sublabel">
+              POSTAL CODE:
+              <input class="k-widget k-textbox k-input x-small" 
+                type="text" 
+                placeholder="Agency Name" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col sublabel">
+            PHYS. #:
+            <input class="k-widget k-textbox k-input xx-small" 
+              type="text" 
+              placeholder="Agency Name" />
+          </div>
+          <div class="col sublabel">
+            MSP #:
+            <input class="k-widget k-textbox k-input xx-small" 
+              type="text" 
+              placeholder="Agency Name" />
+          </div>
+          <div class="col sublabel">
+            TYPE:
+            <input class="k-widget k-textbox k-input small" 
+              type="text" 
+              placeholder="Agency Name" />
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

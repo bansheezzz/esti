@@ -3,6 +3,7 @@ import { Investigation } from 'app/types/investigation';
 import { element } from 'protractor';
 import { Gender } from 'app/types/gender';
 import { PatientService } from 'app/services/patient.service';
+import { InvestigationService } from 'app/services/investigation.service';
 import { Patient } from 'app/types/patient';
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { SelectionEvent, GridComponent } from '@progress/kendo-angular-grid';
@@ -21,7 +22,9 @@ export class SearchComponent implements OnInit {
   private currentRouteTarget: string;
   private isViewable = false;
 
-  constructor(private patientService: PatientService, private router: Router) { }
+  constructor(private patientService: PatientService,
+    private investigationService: InvestigationService,
+    private router: Router) { }
 
   ngOnInit() {
     this.patientService.getPatients()
@@ -31,27 +34,10 @@ export class SearchComponent implements OnInit {
       .subscribe((genders) => this.genders = genders);
   }
 
-  selectPatientRow(event: SelectionEvent) {
+  selectInvestigationRow(event: SelectionEvent, patient: Patient) {
     if (event.selected) {
-      if (this.investigationGrid) {
-        this.clearSelection(this.investigationGrid);
-      }
-      this.patientService.setCurrentPatient(
-        this.patientGrid.data[event.index]
-      );
-      this.currentRouteTarget = 'personalinfo';
-      this.isViewable = true;
-      return;
-    }
-    this.isViewable = false;
-  }
-
-  selectInvestigationRow(event: SelectionEvent) {
-    if (event.selected) {
-      if (this.patientGrid) {
-        this.clearSelection(this.patientGrid);
-      }
-
+      this.patientService.setPatientContext(patient);
+      this.investigationService.setInvestigationContext(this.investigationGrid.data[event.index]);
       this.currentRouteTarget = 'diseasetreatment';
       this.isViewable = true;
       return;

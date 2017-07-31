@@ -1,3 +1,4 @@
+import { InvestigationService } from './services/investigation.service';
 import { HttpClientModule } from '@angular/common/http';
 import { PatientService } from './services/patient.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,6 +21,9 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import { routes } from './app.routes';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PhonePipe } from './pipes/phone.pipe';
+import { NullPipe } from './pipes/null.pipe';
+import { PhysicianComponent } from './components/physician/physician.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { HeaderComponent } from './components/header/header.component';
     StiInformationComponent,
     ContactsComponent,
     NavigationComponent,
-    HeaderComponent
+    HeaderComponent,
+    PhonePipe,
+    NullPipe,
+    PhysicianComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +52,8 @@ import { HeaderComponent } from './components/header/header.component';
     routes
   ],
   providers: [
-    PatientService
+    PatientService,
+    InvestigationService
   ],
   bootstrap: [AppComponent]
 })

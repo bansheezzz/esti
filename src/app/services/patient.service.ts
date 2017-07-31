@@ -1,14 +1,14 @@
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { HttpClient } from '@angular/common/http';
 import { apiRoot } from './../app.global.constants';
 import { Gender } from './../types/gender';
 import { Patient } from './../types/patient';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class PatientService {
-  private currentPatient = new BehaviorSubject<Patient>(new Patient());
+  private currentPatient = new BehaviorSubject<Patient>(null);
 
   constructor(private http: HttpClient) { }
 
@@ -22,11 +22,11 @@ export class PatientService {
       .map((res) => res as Gender[]);
   }
 
-  public setCurrentPatient(patient: Patient) {
+  public setPatientContext(patient: Patient) {
     this.currentPatient.next(patient);
   }
 
-  public getCurrentPatient(): Observable<Patient> {
+  public getPatientContext(): Observable<Patient> {
     return this.currentPatient.asObservable();
   }
 }

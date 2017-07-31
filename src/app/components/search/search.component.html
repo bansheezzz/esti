@@ -145,10 +145,7 @@
 </div>
 
 <kendo-grid [data]="patients" 
-            [height]="350" 
-            [selectable]="true"
-            #patientGrid
-            (selectionChange)="selectPatientRow($event)">
+            [height]="350">
     <kendo-grid-column field="clientID" width="80" title="CLIENT ID"></kendo-grid-column>
     <kendo-grid-column field="phn" width="110" title="PHN"></kendo-grid-column>
     <kendo-grid-column field="lastName" width="100" title="LAST NAME"></kendo-grid-column>
@@ -163,7 +160,7 @@
         <kendo-grid [data]="patient.investigations" 
                 [selectable]="true"
                 #investigationGrid
-                (selectionChange)="selectInvestigationRow($event)">
+                (selectionChange)="selectInvestigationRow($event, patient)">
             <kendo-grid-column field="id" width="40" title="ID"></kendo-grid-column>
             <kendo-grid-column field="disease.name" width="60" title="DISEASE"></kendo-grid-column>
             <kendo-grid-column field="classification" width="70" title="CLASSIFICATION"></kendo-grid-column>

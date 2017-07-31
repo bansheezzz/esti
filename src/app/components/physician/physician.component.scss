@@ -1,0 +1,69 @@
+table {
+    font-size: x-small;
+}
+
+.physician {
+    background-color: #EEEEEE;
+    margin: 10px 0px 10px 0px;
+    padding: 10px 10px 10px 30px;
+    border-radius: 10px;
+}
+
+.other {
+    padding: 10px 10px 10px 0px;
+}
+
+td {
+    padding-right: 20px;
+}
+
+td.label {
+    width: 150px;
+    font-weight: bold;
+    padding: 0px 20px 0px 30px;
+}
+
+h5 {
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.sublabel {
+    font-weight: bold;
+    padding: 2px 20px 2px 0px;
+}
+
+.x-wide {
+    width: 620px;
+}
+
+.wide {
+    width: 550px;
+}
+
+.medium {
+    width: 265px;
+}
+
+.small {
+    width: 150px;
+}
+
+.x-small {
+    width: 100px;
+}
+
+.xx-small {
+    width: 60px;
+}

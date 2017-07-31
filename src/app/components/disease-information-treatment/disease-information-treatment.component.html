@@ -1,3 +1,28 @@
-<p>
-  disease-information-treatment works!
-</p>
+<div class="patient">
+  <h5>{{ patient.lastName.toUpperCase() | null: '-' }}, {{ patient.firstName | null: '-'}}</h5>
+  <table>
+    <tr>
+      <td class="label">CLIENT ID:</td>
+      <td>{{ patient.clientID | null: '-'}}</td>
+      <td class="label">GENDER:</td>
+      <td>{{ patient.gender.description | null: '-'}}</td>
+      <td class="label">HEALTH REGION:</td>
+      <td>{{ patient.healthRegion | null: '-'}}</td>
+    </tr>
+    <tr>
+      <td class="label">DATE OF BIRTH:</td>
+      <td>{{ patient.dob | null: '-' | date: 'y-MMM-dd' }}</td>
+      <td class="label">GENDER IDENTITY:</td>
+      <td>{{ patient.genderIdentity | null: '-'}}</td>
+      <td class="label">PHONE #:</td>
+      <td>{{ patient.phone | null: '-' | phone }}</td>
+    </tr>
+    <tr>
+      <td class="label">HEALTH CARD #:</td>
+      <td>{{ patient.phn | null: '-'}}</td>
+      <td class="label">EMAIL:</td>
+      <td>{{ patient.email | null: '-'}}</td>
+    </tr>
+  </table>
+</div>
+<app-physician></app-physician>

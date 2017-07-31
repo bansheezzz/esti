@@ -14,7 +14,7 @@ export class PersonalInformationComponent implements OnInit, OnDestroy {
   constructor(private patientService: PatientService) { }
 
   ngOnInit(): void {
-    this.subscription = this.patientService.getCurrentPatient()
+    this.subscription = this.patientService.getPatientContext()
       .subscribe((patient) => {
         this.patient = patient;
       });
