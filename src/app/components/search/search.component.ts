@@ -34,18 +34,23 @@ export class SearchComponent implements OnInit {
       .subscribe((genders) => this.genders = genders);
   }
 
-  selectInvestigationRow(event: SelectionEvent, patient: Patient) {
-    if (event.selected) {
-      this.patientService.setPatientContext(patient);
-      this.investigationService.setInvestigationContext(this.investigationGrid.data[event.index]);
-      this.currentRouteTarget = 'diseasetreatment';
-      this.isViewable = true;
+  public selectInvestigation(event: MouseEvent, index: number,
+    patient: Patient, investigation: Investigation) {
+
+    this.clearSelection(this.patientGrid);
+    if (!investigation) {
       return;
     }
-    this.isViewable = false;
+
+    this.patientService.setPatientContext(patient);
+    this.investigationService.setInvestigationContext(investigation);
+    this.currentRouteTarget = 'diseasetreatment';
+    this.isViewable = true;
+
+    event.srcElement.parentElement.classList.add('k-state-selected');
   }
 
-  viewRecord() {
+  public viewRecord() {
     this.router.navigate([ this.currentRouteTarget ])
   }
 

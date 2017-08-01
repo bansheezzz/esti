@@ -145,28 +145,40 @@
 </div>
 
 <kendo-grid [data]="patients" 
-            [height]="350">
+            [height]="350"
+            #patientGrid="kendoGrid">
     <kendo-grid-column field="clientID" width="80" title="CLIENT ID"></kendo-grid-column>
     <kendo-grid-column field="phn" width="110" title="PHN"></kendo-grid-column>
     <kendo-grid-column field="lastName" width="100" title="LAST NAME"></kendo-grid-column>
     <kendo-grid-column field="firstName" width="100" title="FIRST NAME"></kendo-grid-column>
-    <kendo-grid-column field="gender" width="70" title="GENDER"></kendo-grid-column>
+    <kendo-grid-column field="gender.code" width="70" title="GENDER"></kendo-grid-column>
     <kendo-grid-column field="dob" width="100" title="DOB" format="{0:yyyy-MMM-dd}"></kendo-grid-column>
     <kendo-grid-column field="phone" width="90" title="PHONE"></kendo-grid-column>
     <kendo-grid-column field="email" width="150" title="EMAIL"></kendo-grid-column>
     <kendo-grid-column field="address" width="150" title="ADDRESS"></kendo-grid-column>
     <div *kendoGridDetailTemplate="let patient">
         <h3>STI Investigation for Client ({{patient.investigations.length}})</h3>
-        <kendo-grid [data]="patient.investigations" 
-                [selectable]="true"
-                #investigationGrid
-                (selectionChange)="selectInvestigationRow($event, patient)">
-            <kendo-grid-column field="id" width="40" title="ID"></kendo-grid-column>
-            <kendo-grid-column field="disease.name" width="60" title="DISEASE"></kendo-grid-column>
-            <kendo-grid-column field="classification" width="70" title="CLASSIFICATION"></kendo-grid-column>
-            <kendo-grid-column field="collectionDate" width="40" title="COLLECTION DATE" format="{0:yyyy-MMM-dd}"></kendo-grid-column>
-            <kendo-grid-column field="status" width="40" title="STATUS"></kendo-grid-column>
-        </kendo-grid>
+        <table class="detail">
+            <thead>
+                <tr>
+                    <th class="header">ID</th>
+                    <th class="header">DISEASE</th>
+                    <th class="header">CLASSIFICATION</th>
+                    <th class="header">COLLECTION DATE</th>
+                    <th class="header">STATUS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let investigation of patient.investigations" 
+                    (click)="selectInvestigation($event, rowIndex, patient, investigation)">
+                    <td>{{investigation.id}}</td>
+                    <td>{{investigation.disease.name}}</td>
+                    <td>{{investigation.classification}}</td>
+                    <td>{{investigation.collectionDate}}</td>
+                    <td>{{investigation.status}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </kendo-grid>
 
